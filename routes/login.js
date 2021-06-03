@@ -9,7 +9,7 @@ router.get('/',(req,res) =>{
 
 router.post('/',(req,res) =>{
     let name = req.body.name;
-    let password =md5(req.body.pass);
+    // let password =md5(req.body.pass);
 
     var query = "select name,password from tab_user where name = '"+name+"' and password = '"+password+"'";
 

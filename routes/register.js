@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
-var connection = require('./db.js');
-let User = require('./bean/User');
+// var connection = require('./db.js');
+// let User = require('./bean/User');
 // var md5 = require('md5');
 
 router.get('/',(req,res) =>{

@@ -1,27 +1,34 @@
-let express = require('express');
-let router = express.Router();
-// var connection = require('./db.js');
-// let User = require('./bean/User');
-// var md5 = require('md5');
+let express=require('express');
+let router=express.Router();
+//let User=require('./bean/user');
 
-router.get('/',(req,res) =>{
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    port:"3306",
+    password: "123456",
+    database: "work"
+});
+connection.connect();
+
+
+router.get('/',(req,res)=>{
     res.render('register');
 });
+router.post('/', (req, res) => {
 
-router.post('/',(req,res) =>{
-    let name = req.body.name;
-    let password =md5(req.body.pass);
-    
-    var query = 'insert tab_user(name,password) values("'+name+'","'+password+'")';
-    connection.query(query, (query, (err,results,fields) => {
-        if(err){
-            console.log(err);
-            res.json({"status":-1});
-            return;
-        }
-        res.json({"status":1});
-    }))
-    
-})
+  var insertSql = 'insert into pocda_login(Name,password) values(?,?)';
+  connection.query(insertSql, [req.body.Name,req.body.password], function (err, result, fields) {
+  
+      if (err) {
+          console.log('err', err);
+          return;
+      } else {
+         
+          res.redirect('/');
+      }
+  });
+  });
 
 module.exports = router ;

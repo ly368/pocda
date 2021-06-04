@@ -1,27 +1,42 @@
-let express = require('express');
-let router = express.Router();
-var connection = require('./db.js');
-// var md5 = require('md5');
+let express =require('express');
+let router =express.Router();
 
-router.get('/',(req,res) =>{
-    res.render('login');
+var mysql =require('mysql');
+var connection =mysql.createConnection({
+  host:'localhost',
+  user:'root',
+  password:'123456',
+  database:'work'
+});
+connection.connect();
+
+router.get('/', function (req, res) {
+  res.render('login');
 });
 
-router.post('/',(req,res) =>{
-    let name = req.body.name;
-    // let password =md5(req.body.pass);
 
-    var query = "select name,password from tab_user where name = '"+name+"' and password = '"+password+"'";
-
-    connection.query(query, (query, (err,results,fields) => {
-        if(err){
-            console.log(err);
-            res.json({"status":-1});
-            return;
+router.post('login', (req, res) => {
+  var selectSQL = "select Name,password from pocda_login where Name = '" + req.body.Name + "' and password = " + req.body.password + "";
+  connection.query(selectSQL, function (err, result, fields) {
+      if (err) {
+          console.log('err', err);
+          return;
+      } else {
+        if(result == ''){
+          res.send('登录失败');
         }
-        res.json({"status":1});
-    }))
-})
+      else {
+       
+          if (req.body.Name=="YY" && req.body.password==0556) {
+            res.redirect('/index');
+          }
+          else {
+            res.redirect('/home');
+          }
+      }
+    }
+        });
+});
 
-module.exports = router;
 
+  module.exports = router;

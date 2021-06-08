@@ -1,6 +1,6 @@
 let express=require('express');
 let router=express.Router();
-//let User=require('./bean/user');
+let User=require('./bean/user');
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
@@ -12,21 +12,21 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-
+// 跳转注册页面
 router.get('/',(req,res)=>{
     res.render('register');
 });
 router.post('/', (req, res) => {
 
-  var insertSql = 'insert into pocda_login(Name,password) values(?,?)';
-  connection.query(insertSql, [req.body.Name,req.body.password], function (err, result, fields) {
+  var insertSql = 'insert into pocda_lr(phonenumber,password,email) values(?,?,?)';
+  connection.query(insertSql, [req.body.phonenumber,req.body.password,req.body.email], function (err, result, fields) {
   
       if (err) {
           console.log('err', err);
           return;
       } else {
-         
-          res.redirect('/');
+        // res.send("注册成功")
+        res.redirect('/')
       }
   });
   });

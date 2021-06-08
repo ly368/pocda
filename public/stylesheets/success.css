@@ -1,0 +1,13 @@
+a{
+    text-align: center;
+}
+body{
+    background-size: cover;
+}
+.error{
+    width: 100px;margin: 0 auto;
+}
+#count b{
+    font-size: 65px;
+    color:#BF3333;
+}

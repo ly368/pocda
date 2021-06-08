@@ -35,4 +35,5 @@ con.query(sql,param,(err,results)=>{
 
 con.end();
 }
+
 module.exports=db;

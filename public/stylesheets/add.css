@@ -1,0 +1,36 @@
+body{
+    margin: 0px;
+}
+ul{
+    margin: 0px;
+}
+li{
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 50px;
+}
+.kuan input{
+     width:330px;
+     height:60px;
+     border:none; 
+     float:left
+    }
+.an input{
+    width:120px;
+    height:60px;
+    border:none; 
+    float:left}
+.home_page{
+    width: 300px;
+    display: inline-block;
+}
+.home_page_right{
+    width: 700px;
+    display: inline-block;
+}
+.header{
+    width: 100%;
+    height: 75px;
+    background-color: blue;
+    
+}

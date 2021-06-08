@@ -1,3 +1,4 @@
+const { name } = require('ejs');
 let express =require('express');
 let router =express.Router();
 
@@ -15,27 +16,22 @@ router.get('/', function (req, res) {
 });
 
 
-router.post('login', (req, res) => {
-  var selectSQL = "select Name,password from pocda_login where Name = '" + req.body.Name + "' and password = " + req.body.password + "";
+router.post('/', (req, res) => {
+  var selectSQL = "select email,password from pocda_lr where email = '" + req.body.email + "' and password = '" + req.body.password +"' ";
   connection.query(selectSQL, function (err, result, fields) {
       if (err) {
           console.log('err', err);
           return;
       } else {
+        
         if(result == ''){
           res.send('登录失败');
         }
-      else {
-       
-          if (req.body.Name=="YY" && req.body.password==0556) {
-            res.redirect('/index');
-          }
           else {
-            res.redirect('/home');
+            res.redirect('/success');
           }
       }
-    }
-        });
+    });
 });
 
 

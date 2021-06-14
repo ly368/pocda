@@ -72,7 +72,7 @@
                     <td><%=o.detail%></td>
                     <td><%=o.photo%></td>
                     <td>
-                        <input type="button" class="alt" value="修改" data_id="<%=o.id%>"/>
+                        <a href="/alter/<%=o.id%>"><input type="button" class="alt" value="修改" data_id="<%=o.id%>"/></a>
                         <input type="button" class="del" value="删除" data_id="<%=o.id%>"/>
                     </td>
                 </tr>
@@ -83,11 +83,11 @@
         </div>
     </div>
     <script>
-        Array.from(document.getElementsByClassName("alt")).forEach(i =>{
-           i.onclick = function(){
-               window.location.href="/add/alter/"+this.getAttribute('data_id')
-           }
-        })
+        // Array.from(document.getElementsByClassName("alt")).forEach(i =>{
+        //    i.onclick = function(){
+        //        window.location.href="/add/alter/"+this.getAttribute('data_id')
+        //    }
+        // })
         Array.from(document.getElementsByClassName("del")).forEach(i =>{
            i.onclick = function(){
                window.location.href="/add/del/"+this.getAttribute('data_id')

@@ -23,7 +23,8 @@
                     <form action="/add/alter" method="POST" autocomplete="off">
                         <div class="input-group">
                           <input type="text" id="search" placeholder="Search..." autocomplete="off">
-                          <label for="search"><i class="fas fa-search"></i></label>
+                          <label accesskey="submit" for="updown"><i class="fas fa-search"></i></label>
+                          <input id="updown" type="submit" style="display:none">
                         </div>
                         <div class="suggestion-list hidden">
                         </div>
@@ -50,19 +51,21 @@
             </div>
         </nav>
         <div class="class_add">
-            <form action="/add/alter" method="POST">
+            <form action="/alter" method="POST">
                 <div>
+                    <input type="hidden" class="input_add" name="id" value="<%=data[0].id%>" autocomplete="off">
+                    <br>
                     <span>请重新输入您要添加的姓名：</span>
-                    <input type="text" class="input_add" name="title" value="<%=obj.title%>"autocomplete="off">
+                    <input type="text" class="input_add" name="title" value="<%=data[0].title%>"autocomplete="off">
                     <br>
                     <span>请重新输入您要添加的标题：</span>
-                    <input type="text" class="input_add" name="subtitle" value="<%=obj.subtitle%>"autocomplete="off">
+                    <input type="text" class="input_add" name="subtitle" value="<%=data[0].subtitle%>"autocomplete="off">
                     <br>
                     <span class="span_top">请添加对她/他的描述：</span>
-                    <textarea name="detail" id="" cols="35" rows="10" placeholder="不多于100字"><%=obj.detail%></textarea>
+                    <textarea name="detail" id="" cols="35" rows="10" placeholder="不多于100字"><%=data[0].detail%></textarea>
                     <br>
                     <span>请上传您的图片：</span>
-                    <input type="file" class="input_img" name="photo" value="<%=obj.photo%>">
+                    <input type="file" class="input_img" name="photo" value="<%=data[0].photo%>">
                     <br>
                     <img src="" >
                     <br>

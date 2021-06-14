@@ -25,7 +25,6 @@ db.queryParam=function(sql,param,callback){
         user:"root",
         password:"123456",
         database:"work"
-
 });
 
 con.query(sql,param,(err,results)=>{

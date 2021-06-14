@@ -9,6 +9,44 @@ li{
     display: inline-block;
     margin-right: 50px;
 }
+a{
+    text-decoration:none;
+}
+span{
+    
+    font-size: 15px;
+    text-align:center; 
+    width: 200px;
+    display:block;
+    text-align: justify;
+    text-align-last: justify;
+    display: inline-block;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+textarea{
+    outline: none;
+    margin-top: 40px;
+}
+.nav_bar{
+    display: inline-block;
+    vertical-align:top;
+    height: 880px;
+    background-color: antiquewhite;
+}
+.class_add{
+    /* background-color: orange; */
+    width: 1000px;
+    height: 780px;
+    display: inline-block;
+    margin-left: 150px;
+    margin-top: 80px;
+}
+.uploading{
+    font-size: 20px;
+    font-size: 20px;
+    margin-top: 20px;
+}
 .kuan input{
      width:330px;
      height:60px;
@@ -31,6 +69,47 @@ li{
 .header{
     width: 100%;
     height: 75px;
-    background-color: blue;
-    
+    background-color: pink;
+}
+.input_add{
+    width: 250px;
+    margin: 0px;
+    margin-top: 35px;
+}
+.span_top{
+    vertical-align:top;
+}
+.input_img{
+    width: 250px;
+}
+.input_submit{
+    width: 120px;
+    margin-top: 35px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+img{
+    margin-left: 275px;
+    height:200px
+}
+table{
+    border:0px ;
+    text-align: center;
+}
+tr,td{
+    border: rebeccapurple;
+    border: 5px;
+}
+button{
+    color: orange;
+    background-color: palegreen;
+    border-radius: 10px;
+    height: 35px;
+    width: 50px;
+    border: none;
+    margin: 5px;
+}
+.alt,.del{
+    width: 57px;
 }

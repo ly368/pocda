@@ -5,9 +5,9 @@
   font-family: 'Nunito', sans-serif;
 }
 
-body {
+/* body {
   background-color: #110e17;
-}
+} */
 
 .container {
   max-width: 600px;
@@ -24,6 +24,7 @@ form {
 .input-group {
   position: relative;
   width: 500px;
+  height: 45px;
 }
 
 label {
@@ -37,7 +38,7 @@ label {
 
 input {
   width: 100%;
-  padding: 8px 30px 8px 12px;
+  padding: 8px 12px 8px 12px;
   border: 2px solid rgba(0, 0, 0, 0.08);
   outline: none;
   font-size: 16px;
@@ -47,6 +48,7 @@ input {
   letter-spacing: 1px;
   border-radius: 1px;
   transition: all 0.2s ease;
+  border-radius: 10px;
 }
 
 input:focus {

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/www/stylesheets/add.css">
+    <link rel='stylesheet' href='/www/stylesheets/search.css'>
+    <link rel="stylesheet" href="/www/stylesheets/searchstyle.css">
+    <title>admin of pocda</title>
+</head>
+<body>
+    <div class="header">
+        <div class="home_page">
+            <ul>
+                <li><h2><a href="/">pocda</a></h2></li>
+                <li><a href="/add"><h3>首页</h3></a></li>
+            </ul>
+        </div>
+        <div class="home_page_right">
+            <ul>
+                <li>
+                    <form action="/add/alter" method="POST" autocomplete="off">
+                        <div class="input-group">
+                          <input type="text" id="search" placeholder="Search..." autocomplete="off">
+                          <label for="search"><i class="fas fa-search"></i></label>
+                        </div>
+                        <div class="suggestion-list hidden">
+                        </div>
+                      </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="class_nav">
+        <nav class="nav_bar">
+            <div>
+                <ul class="uploading">
+                    <li><a href="/upload">上传数据</a></li>
+                </ul>
+                <ul class="uploading">
+                    <li><a href="/alter">修改数据</a></li>
+                </ul>
+                <ul class="uploading">
+                    <li><a href="">联系我们</a></li>
+                </ul>
+                <ul class="uploading">
+                    <li><a href="">其他</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="class_add">
+            <form action="/add/alter" method="POST">
+                <div>
+                    <span>请重新输入您要添加的姓名：</span>
+                    <input type="text" class="input_add" name="title" value="<%=obj.title%>"autocomplete="off">
+                    <br>
+                    <span>请重新输入您要添加的标题：</span>
+                    <input type="text" class="input_add" name="subtitle" value="<%=obj.subtitle%>"autocomplete="off">
+                    <br>
+                    <span class="span_top">请添加对她/他的描述：</span>
+                    <textarea name="detail" id="" cols="35" rows="10" placeholder="不多于100字"><%=obj.detail%></textarea>
+                    <br>
+                    <span>请上传您的图片：</span>
+                    <input type="file" class="input_img" name="photo" value="<%=obj.photo%>">
+                    <br>
+                    <img src="" >
+                    <br>
+                    <input type="submit" class="input_submit">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        var fileInput = document.querySelector('input[type=file]'),
+                previewImg = document.querySelector('img');
+        fileInput.addEventListener('change', function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            // 监听reader对象的的onload事件，当图片加载完成时，把base64编码賦值给预览图片
+            reader.addEventListener("load", function () {
+                previewImg.src = reader.result;
+            }, false);
+            // 调用reader.readAsDataURL()方法，把图片转成base64
+            reader.readAsDataURL(file);
+        }, false);
+    </script>
+        <script  src="/www/javascripts/search.js"></script>
+</body>
+</html>

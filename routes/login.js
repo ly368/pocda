@@ -29,6 +29,13 @@ router.post('/', (req, res) => {
         }
           else {
             res.redirect('/success');
+            // else {
+            //   res.send('info',{
+            //     title:"登录成功",
+            //     content:"账号密码正确，即将进入首页",
+            //     href:"/",
+            //     hrefTxt:"首页"
+            //   })
           }
       }
     });

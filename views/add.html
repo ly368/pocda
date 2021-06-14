@@ -4,42 +4,97 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/stylesheets/add.css">
-    <link rel='stylesheet' href='../public/stylesheets/search.css'>
-    <link rel="stylesheet" href="../public/stylesheets/searchstyle.css">
+    <link rel="stylesheet" href="/www/stylesheets/add.css">
+    <link rel='stylesheet' href='/www/stylesheets/search.css'>
+    <link rel="stylesheet" href="/www/stylesheets/searchstyle.css">
     <title>admin of pocda</title>
 </head>
 <body>
     <div class="header">
         <div class="home_page">
             <ul>
-                <li><h2>pocda</h2></li>
-                <li>首页</li>
+                <li><h2><a href="/">pocda</a></h2></li>
+                <li><a href="/add"><h3>首页</h3></a></li>
             </ul>
         </div>
         <div class="home_page_right">
             <ul>
                 <li>
-                    <form>
+                    <form action="/add" method="POST" autocomplete="off">
                         <div class="input-group">
-                          <input type="text" id="search" placeholder="Search..." autocomplete="off">
-                          <label for="search"><i class="fas fa-search"></i></label>
+                        <input type="text" name="search" id="search" placeholder="Search..." autocomplete="off">
+                        <label accesskey="submit" for="updown"><i class="fas fa-search"></i></label>
+                        <input id="updown" type="submit" style="display:none">
+                          
                         </div>
                         
-                        <div class="suggestion-list hidden">
-                        </div>
+                        <!-- <div class="suggestion-list hidden">
+                        </div> -->
                       </form>
                 </li>
             </ul>
         </div>
     </div>
-    <nav>
-        <div>
-            <ul>
-                <li>增加数据</li>
-            </ul>
+    <div class="class_nav">
+        <nav class="nav_bar">
+            <div>
+                <ul class="uploading">
+                    <li><a href="/upload">上传数据</a></li>
+                </ul>
+                <ul class="uploading">
+                    <li><a href="/alter">修改数据</a></li>
+                </ul>
+                <ul class="uploading">
+                    <li><a href="">联系我们</a></li>
+                </ul>
+                <ul class="uploading">
+                    <li><a href="">其他</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="class_add">
+            <table>
+                <tr>
+                    <td style="width: 100px;">序号</td>
+                    <td style="width: 100px;">姓名</td>
+                    <td style="width: 100px;">标题</td>
+                    <td style="width: 300px;">详细描述</td>
+                    <td style="width: 100px;">照片</td>
+                    <td style="width: 600px;">操作</td>
+                </tr>
+                <%
+                    for(var o of data){
+                %>
+                <tr>
+                    <td><%=o.id%></td>
+                    <td><%=o.title%></td>
+                    <td><%=o.subtitle%></td>
+                    <td><%=o.detail%></td>
+                    <td><%=o.photo%></td>
+                    <td>
+                        <input type="button" class="alt" value="修改" data_id="<%=o.id%>"/>
+                        <input type="button" class="del" value="删除" data_id="<%=o.id%>"/>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
         </div>
-    </nav>
-    <script  src="../public/javascripts/search.js"></script>
+    </div>
+    <script>
+        Array.from(document.getElementsByClassName("alt")).forEach(i =>{
+           i.onclick = function(){
+               window.location.href="/add/alter/"+this.getAttribute('data_id')
+           }
+        })
+        Array.from(document.getElementsByClassName("del")).forEach(i =>{
+           i.onclick = function(){
+               window.location.href="/add/del/"+this.getAttribute('data_id')
+           }
+        })
+    </script>
+    <script  src="/www/javascripts/search.js"></script>
+
 </body>
 </html>

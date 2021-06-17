@@ -17,6 +17,8 @@ var adminRouter = require('./routes/admin');
 var addRouter = require('./routes/add');
 var uploadRouter = require('./routes/upload');
 var alterRouter = require('./routes/alter');
+var detailRouter = require('./routes/detail');
+var otherRouter = require('./routes/other');
 
 var app = express();
 app.use('/www',express.static('public'))
@@ -48,7 +50,9 @@ app.use('/success',successRouter);
 app.use('/admin',adminRouter);
 app.use('/add',addRouter);
 app.use('/upload',uploadRouter);
-app.use('/alter',alterRouter)
+app.use('/alter',alterRouter);
+app.use('/detail',detailRouter);
+app.use('/other',otherRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -23,7 +23,6 @@ router.post('/', (req, res) => {
   
       if (err) {
           console.log('err', err);
-          return;
       } else {
         res.send("上传成功")
         // res.send('info',{

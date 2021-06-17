@@ -28,8 +28,8 @@ router.post('/', (req, res) => {
             res.redirect('/add');
         }
           else {
-            // res.send("登录失败，请检查您的账号密码是否正确!")
-            res.redirect('/admin');
+            res.send("登录失败，请检查您的账号密码是否正确!")
+            // res.redirect('/admin');
           }
       }
     });

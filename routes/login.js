@@ -23,12 +23,12 @@ router.post('/', (req, res) => {
           console.log('err', err);
           return;
       } else {
-        
         if(result == ''){
           res.send('登录失败');
+        }else{
+          res.send('登录成功');
         }
-          else {
-            res.redirect('/success');
+            // res.redirect('/');
             // else {
             //   res.send('info',{
             //     title:"登录成功",
@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
             //     href:"/",
             //     hrefTxt:"首页"
             //   })
-          }
+          // }
       }
     });
 });
